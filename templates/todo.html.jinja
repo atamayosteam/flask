@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Todo app</title>
+<style>
+body {background-color: rgb(0, 0, 0);}
+h1   {color: rgb(255, 255, 255);}
+p    {color: rgb(255, 255, 255);}
+</style>
+</head>
+
+
+<body>
+<h1>Todo app</h1>
+<p>Graduate</p>
+<p>learn tennis</p>
+</body>
+
+<ul>
+    {% for todo in todos %}
+    <li>{{todo}}</li>
+
+    {% endfor %}
+</ul>
+
+<form>
+    action = "/add"
+    method = "post"
+>
+
+    <textarea name="new_todo"
+    </textarea>
+    
+    </textarea>
+
+
+</form>
+
+</html>
