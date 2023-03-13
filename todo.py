@@ -21,7 +21,17 @@ def add():
     new_todo= request.form['new_todo']
 
     todoss.append(new_todo)
-    return redirect(('/todo'))
+    return redirect(('/'))
+
+app.route("/complete", methods=["POST"])
+def complete():
+    todo_id = request.form['todo_id']
+
+    cursor= connection.cursor()
+
+    cursor.execute(f"UPDATE `todos` SET `complete` =1 WHERE `id` ={todo_id}")
+
+    return redirect("/")
 
 
 
@@ -37,3 +47,5 @@ connection = pymysql.connect(
     cursorclass=pymysql.cursors.DictCursor,
     autocommit = True
 )
+
+

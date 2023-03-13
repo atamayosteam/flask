@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="en"></html>
+ <!DOCTYPE html>
 <head>
-</head>
-<style>
 
-body {background-color: rgb(2, 26, 29);}
-h1   {color: black;}
-p    {color: red;}
-li   {color:red}
-</style>
 
 </head>
-<html>
-<body>
- <h1>Hello </h1>
-    <h2>This is my TODOS</h2>
+
+<body class="container">
+ <h1>MyTODOS </h1>
 
     <ul>
         {% for todo in todoss%}
         <li style = "{% if todo [`complete`] == 1 %} color: red {%endfor%}">
-            {{todo[`Description`]}}
+            <form action="/complete" method="post">
+                <input name="todo_id" value="{{todo['id]}}">
+                <input type="submit" value="complete">
+            </form>
+            {{todo['description']}}
         </li>"
         {% endfor%}
     </ul>
@@ -37,4 +32,5 @@ li   {color:red}
 </form>
 </body>
 
-</html>
+</html> 
+
