@@ -3,7 +3,7 @@ from flask import Flask, render_template, request,redirect
 
 app = Flask(__name__)
 
-todoss= ["read more","learn tennis"]
+todos= ["read more","learn tennis"]
 
 @app.route("/")
 def index():
@@ -20,7 +20,7 @@ def index():
 def add():
     new_todo= request.form['new_todo']
 
-    todoss.append(new_todo)
+    todos.append(new_todo)
     return redirect(('/'))
 
 app.route("/complete", methods=["POST"])
