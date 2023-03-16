@@ -1,6 +1,23 @@
  <!DOCTYPE html>
 <head>
+<style>
+body {
+    color: rgb(0, 0, 0);
+    background-color: rgb(66, 155, 169);
+    
 
+
+}
+
+
+h1
+
+{
+
+    color: rgb(4, 65, 41);
+}
+
+</style>
 
 </head>
 
@@ -10,7 +27,7 @@
     <ul>
         {% for todo in todos%}
             <li style = "{% if todo ['Complete'] == 1 %} color: red {%endif%}">
-                {% if todo['complete'] == 0 %}
+                {% if todo['Complete'] == 0 %}
                  <form action="/Complete" method="post">
                     <input name="todo_id" value="{{todo['id']}}">
                     <input type="submit" value="Complete">

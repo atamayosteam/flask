@@ -34,12 +34,17 @@ def index():
 @app.route("/add", methods=['POST'])
 @auth.login_required
 def add():
-    new_todo= request.form['new_todo']
     cursor = connection.cursor()
+    
+    new_todo= request.form['new_todo']
+
+    cursor.execute(f"INSERT INTO `todos`(`Description`) VALUES ('{new_todo}')")
+
+
 
     return redirect(('/todo'))
 
-app.route("/Complete", methods=["POST"])
+@app.route("/Complete", methods=['POST'])
 @auth.login_required
 def complete():
     todo_id = request.form['todo_id']
